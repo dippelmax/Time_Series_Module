@@ -196,10 +196,11 @@ pacf2
 
 ###### Source: R in Action by Rob Kabacoff 
 
+##### The arima() function in r is the model we will use to fit the data based on the parameters predicted by the pacf(). Specifically, since the values outside the confidence interval were a lag term of 1 and 2 we will use auto-regressive terms and moving average terms near 1-2. In general, it is good to expand a little beyond what is beyond the confidence interval because pacf() is not perfect. 
+
 <br>
 
 ```{r}
-### The arima() function in r is the model we will use to fit the data based on the parameters predicted by the pacf(). Specifically, since the values outside the confidence interval were a lag term of 1 and 2 we will use auto-regressive terms and moving average terms near 1-2. In general, it is good to expand a little beyond what is beyond the confidence interval because pacf() is not perfect. 
 
 #AR
 ar.1 <- arima(d$mod.resid, order=c(1,0,0)) 
@@ -218,7 +219,7 @@ ma.4 <- arima(d$mod.resid, order=c(0,0,4))
 <br>
 
 #### **Challenge 1:** rank the ARIMA models using AICc
-##### After fitting multiple ARIMAs we will use AICc() to rank the models from best to worst. The lower the AICc value the better it is 
+##### After fitting multiple ARIMAs we will use AICc() to rank the models from best to worst. The lower the AICc value the better it is.
 
 <br>
 
